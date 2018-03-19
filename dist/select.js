@@ -1,5 +1,7 @@
 /*!
- * ui-select
+ * mk-ui-select
+ * https://github.com/kw-michal/mk-ui-select
+ * fork of:
  * http://github.com/angular-ui/ui-select
  * Version: 0.19.7 - 2017-04-15T14:28:36.649Z
  * License: MIT
@@ -273,7 +275,7 @@ uis.directive('uiSelectChoices',
 
         scope.$watch('$select.search', function(newValue) {
           if(newValue && !$select.open && $select.multiple) $select.activate(false, true);
-          $select.activeIndex = $select.tagging.isActivated ? -1 : 0;
+          // $select.activeIndex = $select.tagging.isActivated ? -1 : 0; /* LIB MODIFIED HERE */
           if (!attrs.minimumInputLength || $select.search.length >= attrs.minimumInputLength) {
             $select.refresh(attrs.refresh);
           } else {
@@ -328,7 +330,7 @@ uis.controller('uiSelectCtrl',
   ctrl.skipFocusser = false; //Set to true to avoid returning focus to ctrl when item is selected
   ctrl.search = EMPTY_SEARCH;
 
-  ctrl.activeIndex = 0; //Dropdown of choices
+  ctrl.activeIndex = -1; //Dropdown of choices /* LIB MODIFIED HERE */
   ctrl.items = []; //All available choices
 
   ctrl.open = false;
@@ -421,7 +423,7 @@ uis.controller('uiSelectCtrl',
       // ensure that the index is set to zero for tagging variants
       // that where first option is auto-selected
       if ( ctrl.activeIndex === -1 && ctrl.taggingLabel !== false ) {
-        ctrl.activeIndex = 0;
+        //ctrl.activeIndex = 0; /* LIB MODIFIED HERE */
       }
 
       var container = $element.querySelectorAll('.ui-select-choices-content');

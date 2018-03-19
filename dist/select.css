@@ -153,6 +153,7 @@ body > .select2-container.open {
 }
 
 .ui-select-bootstrap .ui-select-toggle > .caret {
+  pointer-events: none; /* LIB MODIFIED HERE */
   position: absolute;
   height: 10px;
   top: 50%;

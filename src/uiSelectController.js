@@ -26,7 +26,7 @@ uis.controller('uiSelectCtrl',
   ctrl.skipFocusser = false; //Set to true to avoid returning focus to ctrl when item is selected
   ctrl.search = EMPTY_SEARCH;
 
-  ctrl.activeIndex = 0; //Dropdown of choices
+  ctrl.activeIndex = -1; //Dropdown of choices /* LIB MODIFIED HERE */
   ctrl.items = []; //All available choices
 
   ctrl.open = false;
@@ -128,7 +128,7 @@ uis.controller('uiSelectCtrl',
       // ensure that the index is set to zero for tagging variants
       // that where first option is auto-selected
       if ( ctrl.activeIndex === -1 && ctrl.taggingLabel !== false ) {
-        ctrl.activeIndex = 0;
+        //ctrl.activeIndex = 0; /* LIB MODIFIED HERE */
       }
 
       var container = $element.querySelectorAll('.ui-select-choices-content');
